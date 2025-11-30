@@ -1,0 +1,62 @@
+---
+import { Button } from "@components/_button.tsx";
+import { Image } from "astro:assets";
+import { ExternalLinkIcon } from "lucide-react";
+---
+
+<div class="flex flex-col justify-center items-center p-4 gap-3">
+    <h2 class="text-3xl font-bold font-serif underline">
+        Cafe Niloufer - Hitech City
+    </h2>
+    <div id="logo">
+        <Image
+            src="https://cafeniloufer.com/cdn/shop/files/logo_360x_3a3f6a04-b109-4e88-97f9-b49ac4675c0d_360x.png?v=1619422169"
+            loading="eager"
+            priority
+            inferSize
+            alt="Cafe Niloufer Logo"
+            format="webp, png"
+            layout="full-width"
+        />
+    </div>
+    <ul class="list-disc list-item">
+        <li>
+            The story of Cafe Niloufer began in 1978 with Shri. A. Babu Rao, who
+            had a single vision of creating a Chai that was not just delicious
+            in taste but also carried the spirit of the city of Hyderabad!
+        </li>
+        <li>
+            Over the years, Cafe Niloufer has become an establishment that has
+            upheld its own unique traditional taste of Hyderabadi Chai, becoming
+            a household name in the process. From a single outlet in Lakdikapul,
+            today Cafe Niloufer can also be enjoyed at Red Hills, Banjara Hills,
+            Himayatnagar, RGI Airport and Hitec City
+        </li>
+        <li>
+            With over 20,000 customers served every day, it’s no secret that
+            Hyderabad loves the Taste of Cafe Niloufer and it is our mission to
+            make sure that this taste is one that we can always stay authentic
+            to and preserve the tradition.
+        </li>
+    </ul>
+    <div class="flex flex-row flex-wrap gap-3.5">
+        <Button variant="link">
+            <a
+                href="https://cafeniloufer.com/"
+                target="_blank"
+                class="flex flex-row gap-2"
+            >
+                <ExternalLinkIcon size="lg" className="mt-1" /> Visit Website
+            </a>
+        </Button>
+        <Button variant="link">
+            <a
+                href="https://maps.app.goo.gl/3Y3NX612TpY4zCy99"
+                target="_blank"
+                class="flex flex-row gap-2"
+            >
+                <ExternalLinkIcon size="lg" className="mt-1" /> Visit Location
+            </a>
+        </Button>
+    </div>
+</div>

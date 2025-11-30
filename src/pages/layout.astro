@@ -1,0 +1,77 @@
+---
+import { ThemeToggle } from "@custom/_theme-toggle.tsx";
+import "@/_global.css";
+---
+
+<script is:inline>
+    const getThemePreference = () => {
+        if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+        ) {
+            return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    };
+    const isDark = getThemePreference() === "dark";
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+    if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+    }
+</script>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Sentiment Analysis</title>
+    </head>
+    <body class="flex flex-col justify-center items-center p-4">
+        <header
+            id="header"
+            class="flex flex-col justify-center items-center p-4"
+        >
+            <ThemeToggle client:load />
+        </header>
+        <main id="main">
+            <slot class="flex flex-col justify-center items-center p-4" />
+        </main>
+        <footer
+            id="footer"
+            class="flex flex-col justify-center items-center p-4"
+        >
+            <div>
+                <h3>Disclaimer:</h3>
+                <ul class="list-item list-disc">
+                    <li>
+                        This website is only for sentiment analysis purpose.
+                    </li>
+                    <li>
+                        The accuracy might be inaccurate due to the nature of
+                        data, model and hardware limiatations.
+                    </li>
+                    <li>
+                        I do not associate myself with the results or opinions
+                        expressed on this website.
+                    </li>
+                    <li>
+                        Neither I am sponsored, nor I am biased nor I am
+                        affiliated with the organization I did analysis for.
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
