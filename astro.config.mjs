@@ -5,6 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://17anirudh.github.io",
+  trailingSlash: "never",
+  base: "/",
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
@@ -12,5 +15,9 @@ export default defineConfig({
   experimental: {
     svgo: true,
     csp: true,
+  },
+  image: {
+    domains: ["astro.build", "cafeniloufer.com"],
+    remotePatterns: [{ protocol: "https" }],
   },
 });

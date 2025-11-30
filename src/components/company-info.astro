@@ -2,6 +2,21 @@
 import { Button } from "@components/_button.tsx";
 import { Image } from "astro:assets";
 import { ExternalLinkIcon } from "lucide-react";
+
+const descriptions: string[] = [
+    `The story of Cafe Niloufer began in 1978 with Shri. A. Babu Rao, who
+  had a single vision of creating a Chai that was not just delicious
+  in taste but also carried the spirit of the city of Hyderabad!`,
+    `Over the years, Cafe Niloufer has become an establishment that has
+  upheld its own unique traditional taste of Hyderabadi Chai, becoming
+  a household name in the process. From a single outlet in Lakdikapul,
+  today Cafe Niloufer can also be enjoyed at Red Hills, Banjara Hills,
+  Himayatnagar, RGI Airport and Hitec City`,
+    ` With over 20,000 customers served every day, it’s no secret that
+  Hyderabad loves the Taste of Cafe Niloufer and it is our mission to
+  make sure that this taste is one that we can always stay authentic
+  to and preserve the tradition.`,
+];
 ---
 
 <div class="flex flex-col justify-center items-center p-4 gap-3">
@@ -15,12 +30,12 @@ import { ExternalLinkIcon } from "lucide-react";
             priority
             inferSize
             alt="Cafe Niloufer Logo"
-            format="webp, png"
             layout="full-width"
         />
     </div>
     <ul class="list-disc list-item">
-        <li>
+        {descriptions.map((description) => <li>{description}</li>)}
+        <!-- <li>
             The story of Cafe Niloufer began in 1978 with Shri. A. Babu Rao, who
             had a single vision of creating a Chai that was not just delicious
             in taste but also carried the spirit of the city of Hyderabad!
@@ -37,7 +52,7 @@ import { ExternalLinkIcon } from "lucide-react";
             Hyderabad loves the Taste of Cafe Niloufer and it is our mission to
             make sure that this taste is one that we can always stay authentic
             to and preserve the tradition.
-        </li>
+        </li> -->
     </ul>
     <div class="flex flex-row flex-wrap gap-3.5">
         <Button variant="link">
